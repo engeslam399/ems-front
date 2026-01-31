@@ -30,12 +30,29 @@
                 </li>
             </ul>
 
-            <!-- Auth Actions (Inside menu on mobile) -->
-            <div class="header-auth d-flex gap-2 ms-lg-auto">
-                <button class="auth-btn btn btn-primary"><i class="pi pi-sign-in me-1"></i>Login</button>
-                <button class="auth-btn logout btn btn-light d-none d-lg-block"><i
-                        class="pi pi-sign-out me-1"></i>Logout</button>
+            <!-- User Profile Section -->
+            <div class="user-profile d-flex align-items-center gap-2 ms-lg-auto" (click)="op.toggle($event)">
+                <div class="avatar-container">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff&rounded=true"
+                        alt="John Doe" class="profile-pic">
+                </div>
+                <span class="username d-none d-lg-block">John Doe</span>
+                <i class="pi pi-chevron-down ms-1 dropdown-icon d-none d-lg-block"></i>
             </div>
+
+            <!-- Profile Dropdown Panel -->
+            <p-popover #op>
+                <div class="profile-panel">
+                    <div class="panel-header mb-3">
+                        <span class="panel-username">John Doe</span>
+                    </div>
+                    <div class="panel-content">
+                        <button class="panel-item logout-btn" (click)="op.hide()">
+                            <i class="pi pi-sign-out me-2"></i>Logout
+                        </button>
+                    </div>
+                </div>
+            </p-popover>
         </div>
     </div>
 </nav>
