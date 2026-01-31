@@ -1,0 +1,96 @@
+<div class="profile-container container">
+    <!-- Profile Header Card -->
+    <div class="profile-header shadow-sm">
+        <div class="header-banner"></div>
+        <div class="header-main px-4 pb-4">
+            <div class="header-top-info d-flex align-items-end gap-4">
+                <div class="avatar-wrapper">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff&size=150"
+                        alt="John Doe" class="profile-avatar border border-4 border-white shadow">
+                    <div class="status-indicator" [ngClass]="user.status.toLowerCase()"></div>
+                </div>
+                <div class="user-meta pb-2">
+                    <h1 class="user-name mb-1">{{ user.name }}</h1>
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="text-muted"><i class="pi pi-briefcase me-1"></i>{{ user.role }}</span>
+                        <span class="text-muted"><i class="pi pi-map-marker me-1"></i>{{ user.location }}</span>
+                        <p-tag [value]="user.status" [severity]="getSeverity(user.status)" class="ms-2"></p-tag>
+                    </div>
+                </div>
+                <div class="ms-auto pb-2 d-none d-md-flex gap-2">
+                    <p-button label="Edit Profile" icon="pi pi-user-edit" severity="secondary" size="small"></p-button>
+                    <p-button label="Download PDF" icon="pi pi-file-pdf" size="small"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 g-4">
+        <!-- Left Column: Details -->
+        <div class="col-lg-4">
+            <p-card header="Personal Information" class="h-100">
+                <div class="info-list">
+                    <div class="info-item d-flex align-items-start gap-3 mb-4">
+                        <div class="info-icon bg-light-indigo"><i class="pi pi-envelope text-indigo"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Email Address</small>
+                            <span class="info-value font-semibold">{{ user.email }}</span>
+                        </div>
+                    </div>
+                    <div class="info-item d-flex align-items-start gap-3 mb-4">
+                        <div class="info-icon bg-light-purple"><i class="pi pi-phone text-purple"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Phone Number</small>
+                            <span class="info-value font-semibold">{{ user.phone }}</span>
+                        </div>
+                    </div>
+                    <div class="info-item d-flex align-items-start gap-3 mb-4">
+                        <div class="info-icon bg-light-orange"><i class="pi pi-building text-orange"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Department</small>
+                            <span class="info-value font-semibold">{{ user.department }}</span>
+                        </div>
+                    </div>
+                    <div class="info-item d-flex align-items-start gap-3">
+                        <div class="info-icon bg-light-green"><i class="pi pi-calendar text-green"></i></div>
+                        <div>
+                            <small class="text-muted d-block">Joined On</small>
+                            <span class="info-value font-semibold">{{ user.joinDate }}</span>
+                        </div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+
+        <!-- Right Column: Main Content -->
+        <div class="col-lg-8">
+            <p-card header="About Employee" class="mb-4">
+                <p class="bio-text text-muted mb-0">{{ user.bio }}</p>
+            </p-card>
+
+            <div class="row g-4">
+                <div class="col-md-7">
+                    <p-card header="Core Skills" class="h-100">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span *ngFor="let skill of user.skills"
+                                class="skill-badge px-3 py-2 rounded-pill bg-light text-primary border">
+                                {{ skill }}
+                            </span>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-md-5">
+                    <p-card header="Quick Stats" class="h-100">
+                        <div class="stats-grid">
+                            <div *ngFor="let stat of user.stats"
+                                class="stat-card p-3 rounded bg-light mb-3 text-center border-start border-4 border-indigo">
+                                <h3 class="mb-0 fw-bold text-indigo">{{ stat.value }}</h3>
+                                <small class="text-muted">{{ stat.label }}</small>
+                            </div>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

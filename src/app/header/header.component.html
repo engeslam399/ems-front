@@ -47,10 +47,10 @@
             <!-- Profile Dropdown Panel -->
             <p-popover #op>
                 <div class="profile-panel">
-                    <div class="panel-header mb-3">
-                        <span class="panel-username">John Doe</span>
-                    </div>
                     <div class="panel-content">
+                        <button class="panel-item" routerLink="/employee-details" (click)="op.hide()">
+                            <i class="pi pi-user me-2"></i>Profile
+                        </button>
                         <button class="panel-item logout-btn" (click)="op.hide()">
                             <i class="pi pi-sign-out me-2"></i>Logout
                         </button>

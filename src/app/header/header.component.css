@@ -167,16 +167,24 @@
     border-radius: 6px;
     transition: all 0.2s ease;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.logout-btn {
+.panel-item:hover {
+    background: #f1f5f9;
+    color: #6366f1;
+}
+
+.panel-item.logout-btn {
     margin-top: 0.5rem;
     color: #ef4444;
 }
 
-.logout-btn:hover {
+.panel-item.logout-btn:hover {
     background: #fef2f2;
+    color: #ef4444;
 }
+
 
 /* Sidebar Drawer Content */
 .sidebar-link {
