@@ -1,1 +1,76 @@
-<h1>Hello Add New Employee</h1>
+<div class="add-employee-container container py-5">
+    <p-toast></p-toast>
+
+    <div class="form-header mb-4">
+        <h1 class="page-title h3 mb-1">Register New Employee</h1>
+        <p class="text-muted">Fill in the details below to add a new member to your team.</p>
+    </div>
+
+    <p-card class="form-card shadow-sm border-0">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="row g-4">
+                <!-- Personal Info -->
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label fw-bold small uppercase text-muted">First Name</label>
+                    <input pInputText id="firstName" formControlName="firstName" class="w-100 p-3 rounded-3"
+                        placeholder="e.g. John" />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label fw-bold small uppercase text-muted">Last Name</label>
+                    <input pInputText id="lastName" formControlName="lastName" class="w-100 p-3 rounded-3"
+                        placeholder="e.g. Doe" />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="email" class="form-label fw-bold small uppercase text-muted">Email Address</label>
+                    <input pInputText id="email" formControlName="email" class="w-100 p-3 rounded-3"
+                        placeholder="e.g. john.doe@company.com" />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="phone" class="form-label fw-bold small uppercase text-muted">Phone Number</label>
+                    <input pInputText id="phone" formControlName="phone" class="w-100 p-3 rounded-3"
+                        placeholder="e.g. +20 123 456 7890" />
+                </div>
+
+                <!-- Employment Info -->
+                <div class="col-md-6">
+                    <label for="department" class="form-label fw-bold small uppercase text-muted">Department</label>
+                    <p-select [options]="departments" formControlName="department" id="department"
+                        class="w-100 custom-dropdown" placeholder="Select Department" [showClear]="true"
+                        optionLabel="label" optionValue="value"></p-select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="role" class="form-label fw-bold small uppercase text-muted">Job Role</label>
+                    <p-select [options]="roles" formControlName="role" id="role" class="w-100 custom-dropdown"
+                        placeholder="Select Job Role" [showClear]="true" optionLabel="label"
+                        optionValue="value"></p-select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="joinDate" class="form-label fw-bold small uppercase text-muted">Join Date</label>
+                    <p-datepicker formControlName="joinDate" id="joinDate" class="w-100 custom-calendar"
+                        placeholder="Select Date" [showIcon]="true" appendTo="body"></p-datepicker>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="salary" class="form-label fw-bold small uppercase text-muted">Annual Salary ($)</label>
+                    <p-inputnumber formControlName="salary" id="salary" mode="currency" currency="USD" locale="en-US"
+                        class="w-100 custom-inputnumber" placeholder="0.00"></p-inputnumber>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="col-12 mt-5">
+                    <div class="d-flex gap-3 justify-content-end">
+                        <p-button label="Cancel" severity="secondary" routerLink="/employees" [outlined]="true"
+                            styleClass="px-5"></p-button>
+                        <p-button type="submit" label="Save Employee" icon="pi pi-check"
+                            [disabled]="employeeForm.invalid" styleClass="px-5 shadow-sm"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </p-card>
+</div>
