@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [RouterLink, RouterLinkActive],
+    imports: [RouterLink, RouterLinkActive, CommonModule],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
 })
-export class HeaderComponent { }
+export class HeaderComponent {
+    isMenuOpen = signal(false);
+
+    toggleMenu() {
+        this.isMenuOpen.update(v => !v);
+    }
+
+    closeMenu() {
+        this.isMenuOpen.set(false);
+    }
+}

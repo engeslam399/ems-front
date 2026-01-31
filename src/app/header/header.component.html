@@ -1,21 +1,41 @@
-<nav class="header">
-    <div class="container d-flex justify-content-between align-items-center">
+<nav class="header" [class.menu-open]="isMenuOpen()">
+    <div class="container d-flex justify-content-between align-items-center h-100">
+        <!-- Logo -->
         <div class="header-logo">
             <span class="logo-text">EMS</span>
         </div>
 
-        <ul class="header-menu d-flex list-unstyled gap-4 mb-0">
-            <li><a routerLink="/home" routerLinkActive="active" class="text-decoration-none"><i
-                        class="pi pi-home me-1"></i>Home</a></li>
-            <li><a routerLink="/employees" routerLinkActive="active" class="text-decoration-none"><i
-                        class="pi pi-users me-1"></i>Employees</a></li>
-            <li><a routerLink="/add-employee" routerLinkActive="active" class="text-decoration-none"><i
-                        class="pi pi-user-plus me-1"></i>Add New Employee</a></li>
-        </ul>
+        <!-- Hamburger Toggle (Mobile Only) -->
+        <button class="menu-toggle d-lg-none" (click)="toggleMenu()" aria-label="Toggle menu">
+            <i class="pi" [ngClass]="isMenuOpen() ? 'pi-times' : 'pi-bars'"></i>
+        </button>
 
-        <div class="header-auth d-flex gap-2">
-            <button class="auth-btn btn btn-primary"><i class="pi pi-sign-in me-1"></i>Login</button>
-            <button class="auth-btn logout btn btn-light"><i class="pi pi-sign-out me-1"></i>Logout</button>
+        <!-- Navigation Menu -->
+        <div class="menu-container" [class.show]="isMenuOpen()">
+            <ul class="header-menu d-flex list-unstyled gap-lg-4 mb-0">
+                <li>
+                    <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">
+                        <i class="pi pi-home me-2 d-lg-none"></i>Home
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/employees" routerLinkActive="active" (click)="closeMenu()">
+                        <i class="pi pi-users me-2 d-lg-none"></i>Employees
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/add-employee" routerLinkActive="active" (click)="closeMenu()">
+                        <i class="pi pi-user-plus me-2 d-lg-none"></i>Add New Employee
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Auth Actions (Inside menu on mobile) -->
+            <div class="header-auth d-flex gap-2 ms-lg-auto">
+                <button class="auth-btn btn btn-primary"><i class="pi pi-sign-in me-1"></i>Login</button>
+                <button class="auth-btn logout btn btn-light d-none d-lg-block"><i
+                        class="pi pi-sign-out me-1"></i>Logout</button>
+            </div>
         </div>
     </div>
 </nav>
