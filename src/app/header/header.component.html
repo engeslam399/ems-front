@@ -1,16 +1,21 @@
 <nav class="header">
-    <div class="header-logo">
-        <span class="logo-text">EMS</span>
-    </div>
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="header-logo">
+            <span class="logo-text">EMS</span>
+        </div>
 
-    <ul class="header-menu">
-        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/employees" routerLinkActive="active">Employees</a></li>
-        <li><a routerLink="/add-employee" routerLinkActive="active">Add New Employee</a></li>
-    </ul>
+        <ul class="header-menu d-flex list-unstyled gap-4 mb-0">
+            <li><a routerLink="/home" routerLinkActive="active" class="text-decoration-none"><i
+                        class="pi pi-home me-1"></i>Home</a></li>
+            <li><a routerLink="/employees" routerLinkActive="active" class="text-decoration-none"><i
+                        class="pi pi-users me-1"></i>Employees</a></li>
+            <li><a routerLink="/add-employee" routerLinkActive="active" class="text-decoration-none"><i
+                        class="pi pi-user-plus me-1"></i>Add New Employee</a></li>
+        </ul>
 
-    <div class="header-auth">
-        <button class="auth-btn">Login</button>
-        <button class="auth-btn logout">Logout</button>
+        <div class="header-auth d-flex gap-2">
+            <button class="auth-btn btn btn-primary"><i class="pi pi-sign-in me-1"></i>Login</button>
+            <button class="auth-btn logout btn btn-light"><i class="pi pi-sign-out me-1"></i>Logout</button>
+        </div>
     </div>
 </nav>
