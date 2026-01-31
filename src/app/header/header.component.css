@@ -21,6 +21,26 @@
     letter-spacing: -1px;
 }
 
+/* Sidebar Toggle Button */
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #6366f1;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-toggle-btn:hover {
+    background: #f1f5f9;
+    transform: scale(1.05);
+}
+
 /* Desktop Navigation Alignment */
 @media (min-width: 992px) {
     .menu-container {
@@ -156,6 +176,30 @@
 
 .logout-btn:hover {
     background: #fef2f2;
+}
+
+/* Sidebar Drawer Content */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link i {
+    font-size: 1.2rem;
+    color: #6366f1;
+}
+
+.sidebar-link:hover {
+    background: #f1f5f9;
+    color: #6366f1;
+    padding-left: 1.5rem;
 }
 
 @media (max-width: 991.98px) {

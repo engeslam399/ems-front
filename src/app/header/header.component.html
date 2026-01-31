@@ -1,7 +1,11 @@
 <nav class="header" [class.menu-open]="isMenuOpen()">
     <div class="container d-flex justify-content-between align-items-center h-100">
-        <!-- Logo -->
-        <div class="header-logo">
+
+        <!-- Logo & Sidebar Toggle -->
+        <div class="header-logo d-flex align-items-center gap-3">
+            <button class="sidebar-toggle-btn" (click)="toggleSidebar()" aria-label="Open sidebar">
+                <i class="pi pi-align-left"></i>
+            </button>
             <span class="logo-text">EMS</span>
         </div>
 
@@ -10,7 +14,7 @@
             <i class="pi" [ngClass]="isMenuOpen() ? 'pi-times' : 'pi-bars'"></i>
         </button>
 
-        <!-- Navigation Menu -->
+        <!-- Navigation Menu (Desktop) -->
         <div class="menu-container" [class.show]="isMenuOpen()">
             <ul class="header-menu d-flex list-unstyled gap-lg-4 mb-0">
                 <li>
@@ -56,3 +60,30 @@
         </div>
     </div>
 </nav>
+
+<!-- Sidebar (Drawer) -->
+<p-drawer [(visible)]="sidebarVisible" header="Employee Management">
+    <div class="sidebar-content">
+        <ul class="sidebar-nav list-unstyled">
+            <li>
+                <a routerLink="/home" (click)="sidebarVisible = false" class="sidebar-link">
+                    <i class="pi pi-home me-3"></i>Dashboard
+                </a>
+            </li>
+            <li>
+                <a routerLink="/employees" (click)="sidebarVisible = false" class="sidebar-link">
+                    <i class="pi pi-users me-3"></i>Employee List
+                </a>
+            </li>
+            <li>
+                <a routerLink="/add-employee" (click)="sidebarVisible = false" class="sidebar-link">
+                    <i class="pi pi-user-plus me-3"></i>Register New
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer border-top pt-3 mt-4">
+            <small class="text-muted">EMS v1.0.0</small>
+        </div>
+    </div>
+</p-drawer>
