@@ -1,0 +1,111 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.header-logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.header-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-menu li a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.header-menu li a:hover {
+    color: #6366f1;
+}
+
+.header-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    transition: width 0.3s ease;
+}
+
+.header-menu li a:hover::after,
+.header-menu li a.active::after {
+    width: 100%;
+}
+
+.header-menu li a.active {
+    color: #6366f1;
+}
+
+.header-auth {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:not(.logout) {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: white;
+}
+
+.auth-btn:not(.logout):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.auth-btn.logout {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.auth-btn.logout:hover {
+    background: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+    .header-menu {
+        position: static;
+        transform: none;
+        gap: 1rem;
+        font-size: 0.8rem;
+    }
+}
