@@ -1,5 +1,89 @@
-h1 {
-    padding: 2rem;
-    text-align: center;
-    color: #333;
+.employees-container {
+    background-color: #f8fafc;
+    min-height: calc(100vh - 70px);
+}
+
+.page-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.02em;
+}
+
+/* Glass Card Wrapper */
+.glass-card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Search Box */
+.search-input {
+    border-radius: 12px;
+    padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+    border: 1.5px solid #e2e8f0;
+    transition: all 0.2s ease;
+    width: 300px !important;
+}
+
+.search-input:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Table Customization */
+:host ::ng-deep .custom-table .p-datatable-thead>tr>th {
+    background: #f8fafc !important;
+    color: #64748b !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    padding: 1.25rem 1rem !important;
+    border-bottom: 1.5px solid #edf2f7 !important;
+}
+
+:host ::ng-deep .custom-table .p-datatable-tbody>tr {
+    transition: background 0.2s ease;
+}
+
+:host ::ng-deep .custom-table .p-datatable-tbody>tr:hover {
+    background: #f1f5f9 !important;
+}
+
+:host ::ng-deep .custom-table .p-datatable-tbody>tr>td {
+    padding: 1.25rem 1rem !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: middle !important;
+}
+
+/* Badges and Tags */
+.dept-badge {
+    font-size: 0.8rem;
+    color: #475569;
+    background-color: #f1f5f9 !important;
+}
+
+:host ::ng-deep .status-tag .p-tag {
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 0.25rem 0.6rem !important;
+    border-radius: 6px !important;
+}
+
+/* Responsive Table Adjustments */
+@media (max-width: 960px) {
+    .search-input {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        text-align: center;
+    }
+
+    .header-actions {
+        justify-content: center;
+    }
 }
