@@ -1,0 +1,61 @@
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="logo">
+                <i class="pi pi-shield"></i>
+            </div>
+            <h2>Welcome Back</h2>
+            <p>Please enter your details to sign in</p>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+            <div class="field-group">
+                <label for="username">Username or Email</label>
+                <div class="input-with-icon">
+                    <i class="pi pi-user"></i>
+                    <input id="username" type="text" pInputText formControlName="username"
+                        placeholder="Enter your username or email" />
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <i class="pi pi-lock"></i>
+                    <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="false"
+                        placeholder="Enter your password" styleClass="w-full" inputStyleClass="w-full"></p-password>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="remember-me">
+                    <p-checkbox formControlName="rememberMe" [binary]="true" inputId="rememberMe"></p-checkbox>
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <a href="javascript:void(0)" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <p-button label="Sign In" type="submit" [disabled]="loginForm.invalid" styleClass="login-btn"></p-button>
+
+            <p-divider align="center">
+                <span class="divider-text">OR CONTINUE WITH</span>
+            </p-divider>
+
+            <div class="social-icons-container">
+                <button type="button" pButton icon="pi pi-google"
+                    class="p-button-outlined p-button-rounded social-icon-btn google-icon"
+                    (click)="socialLogin('google')" title="Login with Google"></button>
+                <button type="button" pButton icon="pi pi-github"
+                    class="p-button-outlined p-button-rounded social-icon-btn github-icon"
+                    (click)="socialLogin('github')" title="Login with GitHub"></button>
+                <button type="button" pButton icon="pi pi-facebook"
+                    class="p-button-outlined p-button-rounded social-icon-btn facebook-icon"
+                    (click)="socialLogin('facebook')" title="Login with Facebook"></button>
+            </div>
+        </form>
+
+        <div class="login-footer">
+            <p>Don't have an account? <a href="javascript:void(0)" class="signup-link">Sign up</a></p>
+        </div>
+    </div>
+</div>

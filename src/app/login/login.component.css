@@ -1,0 +1,257 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 0% 0%, #4f46e5 0%, #3b82f6 50%, #1d4ed8 100%);
+    padding: 1.5rem;
+    position: relative;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+}
+
+.logo i {
+    font-size: 2.25rem;
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.025em;
+}
+
+.login-header p {
+    color: #718096;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.field-group label {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.875rem;
+}
+
+.input-with-icon,
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-with-icon i,
+.password-wrapper>i {
+    position: absolute;
+    left: 1rem;
+    color: #a0aec0;
+    z-index: 10;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+/* Ensure Password component takes full width */
+::ng-deep .p-password {
+    width: 100% !important;
+}
+
+::ng-deep .p-password input {
+    width: 100% !important;
+}
+
+::ng-deep .p-inputtext {
+    width: 100% !important;
+    padding: 0.875rem 1rem 0.875rem 2.75rem !important;
+    border-radius: 12px !important;
+    border: 1.5px solid #e2e8f0 !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease !important;
+    background: #f8fafc !important;
+}
+
+::ng-deep .p-inputtext:focus {
+    border-color: #4f46e5 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1) !important;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -0.5rem 0;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.remember-me label {
+    font-size: 0.875rem;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+::ng-deep .login-btn {
+    width: 100% !important;
+    padding: 1rem !important;
+    background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.025em !important;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 0.5rem;
+}
+
+::ng-deep .login-btn:hover:not(:disabled) {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4) !important;
+}
+
+.divider-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    background: white;
+    /* Match card background to mask divider line */
+    padding: 0 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+::ng-deep .social-icon-btn {
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1.5px solid #e2e8f0 !important;
+    background: white !important;
+    color: #475569 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+::ng-deep .social-icon-btn i {
+    font-size: 1.25rem !important;
+}
+
+::ng-deep .google-icon:hover {
+    background: #fdf2f2 !important;
+    border-color: #f87171 !important;
+    color: #dc2626 !important;
+    transform: translateY(-3px);
+}
+
+::ng-deep .github-icon:hover {
+    background: #f8fafc !important;
+    border-color: #1e293b !important;
+    color: #1e293b !important;
+    transform: translateY(-3px);
+}
+
+::ng-deep .facebook-icon:hover {
+    background: #eff6ff !important;
+    border-color: #3b82f6 !important;
+    color: #2563eb !important;
+    transform: translateY(-3px);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.login-footer p {
+    margin: 0;
+    color: #718096;
+    font-size: 0.9375rem;
+}
+
+.signup-link {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2rem;
+    }
+
+    .login-header h2 {
+        font-size: 1.75rem;
+    }
+}
