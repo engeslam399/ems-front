@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -27,7 +28,11 @@ import { DividerModule } from 'primeng/divider';
 export class LoginComponent {
     loginForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private router: Router) {
+    constructor(
+        private fb: FormBuilder,
+        private router: Router,
+        private authService: AuthService
+    ) {
         this.loginForm = this.fb.group({
             username: ['', [Validators.required]],
             password: ['', [Validators.required]],
@@ -38,7 +43,8 @@ export class LoginComponent {
     onSubmit() {
         if (this.loginForm.valid) {
             console.log('Login attempt with:', this.loginForm.value);
-            // Logic for actual login would go here
+            // Simulate successful login by saving a fake token
+            this.authService.login('dummy-jwt-token');
             this.router.navigate(['/home']);
         }
     }
