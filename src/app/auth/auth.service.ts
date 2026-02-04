@@ -1,16 +1,32 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { tap, catchError, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    private isAuthenticatedSignal = signal<boolean>(this.checkToken());
+    private http = inject(HttpClient);
+    private isAuthenticatedSignal = signal<boolean>(false);
+    currentUser = signal<any>(null);
 
-    constructor() { }
+    constructor() {
+        this.checkAuth();
+    }
 
-    private checkToken(): boolean {
-        // In a real app, you might also validate the token with the server
-        return !!localStorage.getItem('auth_token');
+    checkAuth() {
+        // Attempt to fetch user from backend
+        this.http.get('http://localhost:8080/api/auth/me', { withCredentials: true })
+            .subscribe({
+                next: (user) => {
+                    this.currentUser.set(user);
+                    this.isAuthenticatedSignal.set(true);
+                },
+                error: () => {
+                    this.isAuthenticatedSignal.set(false);
+                    this.currentUser.set(null);
+                }
+            });
     }
 
     isLoggedIn() {
@@ -18,12 +34,14 @@ export class AuthService {
     }
 
     login(token: string) {
-        localStorage.setItem('auth_token', token);
-        this.isAuthenticatedSignal.set(true);
+        // Legacy login (if needed) or trigger fetch
+        this.checkAuth();
     }
 
     logout() {
-        localStorage.removeItem('auth_token');
+        // Here you would also call backend logout endpoint
         this.isAuthenticatedSignal.set(false);
+        this.currentUser.set(null);
+        localStorage.removeItem('auth_token');
     }
 }

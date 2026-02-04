@@ -50,7 +50,10 @@ export class LoginComponent {
     }
 
     socialLogin(platform: string) {
-        console.log(`Logging in with ${platform}`);
-        // Logic for social login would go here
+        if (platform === 'google') {
+            window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+        } else if (platform === 'github') {
+            window.location.href = 'http://localhost:8080/oauth2/authorization/github';
+        }
     }
 }

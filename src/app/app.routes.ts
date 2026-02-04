@@ -6,9 +6,12 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './auth/auth.guard';
 
+import { LoginSuccessComponent } from './login/login-success.component';
+
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
+    { path: 'login-success', component: LoginSuccessComponent },
     { path: 'home', component: HomeComponent, canActivate: [authGuard] },
     { path: 'employees', component: EmployeesComponent, canActivate: [authGuard] },
     { path: 'add-employee', component: AddEmployeeComponent, canActivate: [authGuard] },
