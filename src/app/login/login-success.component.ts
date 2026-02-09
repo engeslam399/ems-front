@@ -18,8 +18,9 @@ export class LoginSuccessComponent implements OnInit {
     ngOnInit() {
         // Give a brief moment for the cookie to be set/auth check to happen
         setTimeout(() => {
-            this.authService.checkAuth();
-            this.router.navigate(['/home']);
+            this.authService.checkAuth().subscribe(() => {
+                this.router.navigate(['/home']);
+            });
         }, 1000);
     }
 }
